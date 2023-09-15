@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color Changer</title>
+    <style>
+        body{
+            background-color: aqua;
+            margin: 0;
+            padding: 0;
+        }
+
+        input{
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+        }
+
+        button{
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%
+        }
+
+        .div1{
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 1px;
+            width: 100%;
+        }
+
+        .div2{
+            background-color: antiquewhite;
+            border: 2px solid black;
+            border-radius: 20px;
+            width: 30%;
+            margin: auto;
+            padding: 20px;
+            margin-top: 200px;
+
+            
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="div1">
+        <h1>Background Color Changer</h1>
+    </nav>
+    <div class="div2 centered-div">
+        <input type="text" id="colorInput" placeholder="Color"/>
+        <input type="color" id="colorInput1" onchange="changeColor1()"/>
+        
+        <button id="colorButton"  onclick="changeColor()">Change Color</button>
+        <button  id="randomColorButton" onclick="randomColor()">Random Color</button>
+
+        
+        <script>
+            function changeColor(){
+                var color = document.getElementById("colorInput").value;
+                document.getElementById('colorInput').value = color;
+                document.body.style.backgroundColor = color;
+
+            }
+
+            function changeColor1(){
+                var color = document.getElementById("colorInput1").value;
+                document.getElementById('colorInput').value = color;
+                document.body.style.backgroundColor = color;
+
+            }
+
+            function randomColor(){
+                var color = getRandomColor();
+                document.body.style.backgroundColor = color;
+                document.getElementById('colorInput').value = color;
+            }
+
+            function getRandomColor(){
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for(var i = 0; i < 6; i++){
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        </script>
+
+    </div>
+</body>
+</html>
